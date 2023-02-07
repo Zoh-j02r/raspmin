@@ -17,6 +17,7 @@ OPENRC_STACKED_RUNLEVELS += "logging:default"
 OPENRC_SERVICES += " \
     sysinit:udev-trigger \
     default:udev-settle \
+    default:dhcpcd \
     logging:busybox-klogd \
     logging:busybox-syslogd \
 "

@@ -2,8 +2,7 @@ FROM ubuntu:focal
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get -y install sudo curl git build-essential vim \
 	python3-pip python3-pexpect python3-subunit python3-git wget unzip \
-	xz-utils chrpath cpio diffstat gawk socat liblz4-tool zstd 
-RUN apt-get install locales
+	xz-utils chrpath cpio diffstat gawk socat liblz4-tool zstd locales
 RUN locale-gen en_US.UTF-8
 RUN useradd -u 5000 --create-home --home-dir /home/build builder && \
 	echo "builder ALL=(ALL) NOPASSWD: ALL" | tee -a /etc/sudoers
@@ -16,5 +15,7 @@ RUN cd /home/build && \
 	./scripts/install-buildtools && \
 	. /home/build/poky/buildtools/environment-setup-x86_64-pokysdk-linux && \
 	. /home/build/poky/oe-init-build-env
-ADD conf /home/build/poky/build/conf
+#COPY . /home/build/
+COPY conf /home/build/poky/build/conf
+COPY raspmin-core.bb /home/build/poky/meta/recipes-core/images/raspmin-core.bb
 RUN mkdir /home/build/share
