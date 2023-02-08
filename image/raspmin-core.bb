@@ -1,13 +1,13 @@
-SUMMARY = "A custom image for running openrc on raspberry on target device"
-
-IMAGE_FEATURES += "splash ssh-server-dropbear"
+SUMMARY = "core-raspmin-image"
+DESCRIPTION = "A custom image for running openrc on raspberry on target device"
+IMAGE_FEATURES += "ssh-server-dropbear"
 
 IMAGE_INSTALL += " \
     openrc \
     packagegroup-core-boot \
 "
 
-IMAGE_BASENAME := "openrc"
+export IMAGE_BASENAME = "raspmin-image"
 
 LICENSE = "MIT"
 
