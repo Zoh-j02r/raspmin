@@ -12,10 +12,9 @@ RUN cd /home/build && \
 	git clone https://git.openembedded.org/meta-openembedded -b kirkstone && \
 	git clone https://github.com/agherzan/meta-raspberrypi -b kirkstone && \
 	git clone https://github.com/jsbronder/meta-openrc -b kirkstone && \
+	git clone https://github.com/Freescale/meta-freescale -b kirkstone && \
 	./scripts/install-buildtools && \
 	. /home/build/poky/buildtools/environment-setup-x86_64-pokysdk-linux && \
 	. /home/build/poky/oe-init-build-env
-#COPY . /home/build/
-COPY conf /home/build/poky/build/conf
-COPY raspmin-core.bb /home/build/poky/meta/recipes-core/images/raspmin-core.bb
-RUN mkdir /home/build/share
+COPY --chown=builder conf /home/build/poky/build/conf
+RUN mkdir /home/build/share /home/build/poky/meta-raspmin
