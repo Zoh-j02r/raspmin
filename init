@@ -1,4 +1,5 @@
 #!/bin/bash
 docker run --rm -it -v $(pwd)/share:/home/build/share \
-	-v $(pwd)/meta-raspmin:/home/build/poky/meta-raspmin raspmin bash
+	-v $(pwd)/meta-raspmin:/home/build/poky/meta-raspmin \
+	-v $(pwd)/conf:/home/build/poky/build/conf raspmin bash
 
