@@ -16,5 +16,5 @@ RUN cd /home/build && \
 	./scripts/install-buildtools && \
 	. /home/build/poky/buildtools/environment-setup-x86_64-pokysdk-linux && \
 	. /home/build/poky/oe-init-build-env
-COPY --chown=builder conf /home/build/poky/build/conf
-RUN mkdir /home/build/share /home/build/poky/meta-raspmin
+RUN mkdir /home/build/share \
+	/home/build/poky/meta-raspmin
