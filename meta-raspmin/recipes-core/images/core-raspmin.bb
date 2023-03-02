@@ -2,7 +2,7 @@ SUMMARY = "core-raspmin-image"
 DESCRIPTION = "A custom image for running openrc on raspberry"
 IMAGE_FEATURES += "ssh-server-dropbear debug-tweaks"
 
-RASPMIN_CONNECTIVITY="wpa-supplicant linux-firmware-rpidistro-bcm43455"
+RASPMIN_CONNECTIVITY="dhcpcd wpa-supplicant linux-firmware-rpidistro-bcm43455"
 RASPMIN_MULTIMEDIA="gstreamer1.0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good"
 CORE_IMAGE_EXTRA_INSTALL = "${RASPMIN_CONNECTIVITY} ${RASPMIN_MULTIMEDIA}" 
 
@@ -22,6 +22,7 @@ OPENRC_STACKED_RUNLEVELS += "logging:default"
 OPENRC_SERVICES += " \
     sysinit:udev-trigger \
     default:udev-settle \
+    default:dhcpcd \
     logging:busybox-klogd \
     logging:busybox-syslogd \
 "
