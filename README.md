@@ -15,8 +15,8 @@ $ . oe-init-build-env
 $ bitbake core-raspmin
 ```
 The project image will be found at `share/tmp/deploy/images/raspberry4-64/*.rpi-sdimg` 
-```
-For wifi capabilities the wpa_supplicant must be initilized as service using openrc, pass the initialization args to `/etc/conf.d/wpa_supplicant` file and set it as a service using
+
+For wifi capabilities the `wpa_supplicant` must be initilized as service using `openrc`, pass the initialization args to `/etc/conf.d/wpa_supplicant` file and set it as a service using
 ```
 rc-update add wpa_supplicant default
 rc-service wpa_supplicant start
